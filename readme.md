@@ -9,23 +9,28 @@ A starting point for using a local language model in a sketch.
 
 ## Installation
 
-Requirements: [Ollama](https://ollama.com) running on your computer or on
-the local network, with the model `gpt-oss` (`ollama pull gpt-oss`).
-
-Set `ollama_host` at the top of `sketch.js` to the address of your Ollama
-server (default `http://192.168.2.8:11434`, e.g. `http://127.0.0.1:11434`
-for a local install). If the server runs on another machine, it must listen
-on the network (`OLLAMA_HOST=0.0.0.0`).
+Requirements: a running Ollama server (see Server).
 
 Libraries (in `libraries/`): p5.js 1.10.0, p5.sound 1.0.1 (included, not
 used), ollama-js 0.5.17 (browser build, `ollama_browser.mjs`).
+
+## Server
+
+Needs an [Ollama](https://ollama.com) server on port 11434 with the model
+`gpt-oss` (`ollama pull gpt-oss`), on the same computer or on another
+machine in the network. Start it before the sketch (Ollama app or
+`ollama serve`). On another machine it must listen on the network
+(`OLLAMA_HOST=0.0.0.0 ollama serve`); `OLLAMA_ORIGINS` (e.g. `"*"`) allows
+browser requests from other origins. Set `ollama_host` at the top of
+`sketch.js` to the server address (default `http://192.168.2.8:11434`,
+e.g. `http://127.0.0.1:11434` for a local install).
 
 ## How to Run
 
 1. Open the folder in Visual Studio Code and start Live Server (click
    **Go Live** in the status bar).
 2. If the browser blocks the requests (CORS), allow the origin on the server
-   (`OLLAMA_ORIGINS`) or start the debugger configuration
+   (`OLLAMA_ORIGINS`, see Server) or start the debugger configuration
    **Launch Chrome (no Security)** (Run and Debug panel).
 3. The conversation starts automatically with "Wie denkst du über den Mars?".
 
