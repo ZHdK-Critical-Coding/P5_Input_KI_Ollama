@@ -14,20 +14,22 @@ Voraussetzungen: [Ollama](https://ollama.com) läuft auf dem eigenen
 Computer oder im lokalen Netz, mit dem Modell `gpt-oss`
 (`ollama pull gpt-oss`).
 
-1. `ollama_host` oben in `sketch.js` auf die Adresse des Ollama-Servers
-   setzen (Standard `http://192.168.2.8:11434`, z. B.
-   `http://127.0.0.1:11434` bei einer lokalen Installation). Läuft der
-   Server auf einem anderen Rechner, muss er im Netzwerk erreichbar sein
-   (`OLLAMA_HOST=0.0.0.0`).
-2. Den Ordner in Visual Studio Code öffnen und Live Server starten (in der
-   Statusleiste auf **Go Live** klicken).
-3. Blockiert der Browser die Anfragen (CORS), den Origin auf dem Server
-   erlauben (`OLLAMA_ORIGINS`) oder die Debugger-Konfiguration
-   **Launch Chrome (no Security)** starten (Panel Run and Debug).
-4. Die Unterhaltung startet automatisch mit "Wie denkst du über den Mars?".
+`ollama_host` oben in `sketch.js` auf die Adresse des Ollama-Servers setzen
+(Standard `http://192.168.2.8:11434`, z. B. `http://127.0.0.1:11434` bei
+einer lokalen Installation). Läuft der Server auf einem anderen Rechner,
+muss er im Netzwerk erreichbar sein (`OLLAMA_HOST=0.0.0.0`).
 
 Bibliotheken (in `libraries/`): p5.js 1.10.0, p5.sound 1.0.1 (eingebunden,
 nicht verwendet), ollama-js 0.5.17 (Browser-Build, `ollama_browser.mjs`).
+
+## Ausführen
+
+1. Den Ordner in Visual Studio Code öffnen und Live Server starten (in der
+   Statusleiste auf **Go Live** klicken).
+2. Blockiert der Browser die Anfragen (CORS), den Origin auf dem Server
+   erlauben (`OLLAMA_ORIGINS`) oder die Debugger-Konfiguration
+   **Launch Chrome (no Security)** starten (Panel Run and Debug).
+3. Die Unterhaltung startet automatisch mit "Wie denkst du über den Mars?".
 
 ## Coding-Hilfe
 
@@ -41,7 +43,7 @@ nicht verwendet), ollama-js 0.5.17 (Browser-Build, `ollama_browser.mjs`).
   `gpt-oss`, `stream: true` und einem System-Prompt je nach Persona auf: DR
   stellt kurze, kritische Fragen, EM antwortet provokant. Modell und
   System-Prompts hier ändern. Die Sampling-Optionen (`top_k`, `top_p`,
-  `repetition_penalty`) werden bei jedem Aufruf leicht zufällig variiert.
+  `repeat_penalty`) werden bei jedem Aufruf leicht zufällig variiert.
   Die gestreamten Teile werden an einen neuen Eintrag in `stack` angehängt;
   ist die Antwort fertig, ruft sich `chat()` mit der anderen Persona selbst
   auf.

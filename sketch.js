@@ -42,7 +42,7 @@ async function chat(actor, lastSentence) {
       temperature: temperature,
       top_k: Math.floor(50 + Math.random() * 100), // variiert zwischen 50–150
       top_p: 0.85 + Math.random() * 0.1,           // leichte Abweichung bei nucleus sampling
-      repetition_penalty: 1.05 + Math.random() * 0.1
+      repeat_penalty: 1.05 + Math.random() * 0.1
     }
   });
 
